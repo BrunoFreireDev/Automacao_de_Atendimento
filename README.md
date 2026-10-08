@@ -27,7 +27,7 @@ Este repositório documenta a arquitetura de uma solução desenvolvida para oti
 Abaixo está a representação visual da lógica implementada no n8n para gerenciar as regras de negócio:
 
 <div align="center">
-  <!-- Dica: Você pode colocar um print limpo do seu fluxo na pasta do repo e linkar aqui -->
+  https://github.com/BrunoFreireDev/Automacao_de_Atendimento/blob/main/Imagens/FluxoCloudAPI.png
   <img src="fluxo-n8n.png" width="100%" alt="Fluxo n8n de Automação de Atendimento">
 </div>
 
