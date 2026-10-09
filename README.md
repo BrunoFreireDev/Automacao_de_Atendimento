@@ -17,58 +17,47 @@
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
 
 <div align="center">
-<img src="https://skillicons.dev/icons?i=docker,git,github,vscode&theme=dark"/>
+<img src="https://skillicons.dev/icons?i=docker,nodejs,git,github,vscode&theme=dark"/>
 </div>
 
 * **n8n:** Orquestração de fluxos, lógica condicional e tratamento de webhooks.
 * **Chatwoot & API do WhatsApp:** Camada de atendimento omnichannel e mensageria usando a CloudAPI como Tech Provider.
-* **Docker:** Self-hosting do Chatwoot e gerenciamento de infraestrutura para funcionamento e atendimento.
+* **Docker & Docker Compose:** Self-hosting do Chatwoot e gerenciamento de infraestrutura.
+* **Node.js (22 LTS):** Ambiente de execução para scripts de apoio e dependências.
 * **Banco de Dados (Firebird / SQL):** Consultas, persistência de dados, validação de status e controle de técnicos.
 
 ---
 
 ## 📋 Sobre o Projeto
-Este repositório documenta a arquitetura de uma solução desenvolvida para otimizar operações de suporte técnico e atendimento ao cliente. O fluxo automatiza a recepção de mensagens, realiza validações em tempo real no banco de dados e direciona as demandas de forma inteligente atribuindo os responsáveis e até mesmo concluindo demandas através do controle condicional do fluxo.
+Este repositório documenta a arquitetura de uma solução desenvolvida para otimizar operações de suporte técnico e atendimento ao cliente. O fluxo automatiza a recepção de mensagens, realiza validações em tempo real no banco de dados e direciona as demandas de forma inteligente atribuindo os responsáveis e concluindo chamados através de controle condicional.
 
 ### ✨ Principais Funcionalidades do Fluxo
-* **Roteamento Inteligente:** Identifica automaticamente se o contato pertence a um contato cadastrado no DB relacionado a uma empresa e com atendimento em andamento ou se trata de uma nova demanda.
-* **Cadastro de Ordens de Serviço (OS):** Subfluxo dedicado ao registro automatizado de chamados direcionados condicionalmente ao técnico correto conforme atendimento.
-* **Consultas e Atualizações Dinâmicas:** Integração profunda com banco de dados utilizando nós condicionais (`If`, `Switch`) para validação de status e atualização de registros dentro do DB e tabelas do próprio fluxo.
-* **Encerramento de Chamados:** Tratamento automatizado para finalização de atendimentos e salvamento de histórico nas tabelas do fluxo como uma forma de Logs para controle e consultas posteriores.
+* **Roteamento Inteligente:** Identifica automaticamente se o contato pertence a uma empresa cadastrada no DB com atendimento em andamento ou se é uma nova demanda.
+* **Cadastro de Ordens de Serviço (OS):** Subfluxo dedicado ao registro automatizado de chamados direcionados ao técnico correto.
+* **Consultas e Atualizações Dinâmicas:** Integração profunda com banco de dados utilizando nós condicionais (`If`, `Switch`) para validação de status.
+* **Encerramento de Chamados:** Tratamento automatizado para finalização de atendimentos e salvamento de histórico em tabelas de log.
 
 ---
 
 ## 📊 Arquitetura do Fluxo (n8n)
-Abaixo está a representação visual da lógica implementada no n8n para gerenciar as regras de negócio:
-
 <div align="center">
   <img src="Imagens/FluxoCloudAPI.png" width="100%" alt="Fluxo n8n de Automação de Atendimento">
 </div>
 
 ---
 
-## 💡 Como Funciona
+## 🚀 Guia de Instalação e Configuração (Passo a Passo)
 
-<table>
-<tr>
-<td width="100%" valign="top">
+Siga os passos abaixo para preparar o seu ambiente local ou servidor de homologação para rodar a stack completa.
 
-1. **Recepção:** O cliente envia uma mensagem via WhatsApp.
-2. **Webhook:** O Chatwoot recebe a informação repassada pela CloudAPI da Meta e redireciona para o webhook acionando o fluxo orquestrado no **n8n**.
-3. **Validação:** O fluxo valida no banco de dados se o número que entrou em contato consta no cadastro de alguma empresa no ERP.
-4. **Triagem de Contato:** 
-   * Se o número **está cadastrado**, uma mensagem automática é enviada no WhatsApp com saudações e perguntando ao cliente como podemos ajudar.
-   * Se o número for **novo**, uma ocorrência é cadastrada no sistema avisando aos técnicos que devem cadastrar o novo número como contato no cadastro da empresa.
-5. **Controle de Estado:** Após concluir o envio das mensagens, uma tabela de controle é atualizada avisando que o cliente já recebeu as saudações e agora está aguardando o atendimento de um técnico da equipe.
-6. **Abertura de OS:** Assim que um técnico manda a primeira mensagem, o fluxo novamente é acionado seguindo o subfluxo que cadastra uma OS (Chamado) no ERP, dando início ao atendimento e preenchendo as informações da empresa, o técnico responsável e o horário exato de início.
-7. **Encerramento:** Quando o técnico marca a conversa do Chatwoot como "resolvida", o Chatwoot envia uma atualização para o webhook dando início ao subfluxo que vai identificar a OS e o cliente, fazendo a conclusão da OS.
+### 1. Pré-requisitos
+Certifique-se de ter as seguintes ferramentas instaladas em sua máquina/servidor:
+* [Docker e Docker Compose](https://docs.docker.com/get-docker/)
+* [Node.js (Versão 22 LTS ou superior)](https://nodejs.org/)
+* Git
 
-</td>
-</tr>
-</table>
-
----
-
-<div align="center">
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1e293b,55:0f172a,100:020617&height=80&section=footer" width="100%"/>
-</div>
+### 2. Clonando o Repositório
+Abra o seu terminal e clone este repositório:
+```bash
+git clone [https://github.com/BrunoFreireDev/Automacao_de_Atendimento.git](https://github.com/BrunoFreireDev/Automacao_de_Atendimento.git)
+cd Automacao_de_Atendimento
