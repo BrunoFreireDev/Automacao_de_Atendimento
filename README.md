@@ -70,7 +70,7 @@ A comunicação entre as camadas ocorre da seguinte forma:
 ### 1. Pré-requisitos na Máquina
 * **Node.js:** Versão 22 LTS (ou superior) instalada para gerenciar o n8n globalmente.
 * **Docker e Docker Compose:** Para rodar a infraestrutura do Chatwoot de forma isolada.
-* **Cloudflare Tunnels:** Essencial para expor o n8n para a web.
+* **Cloudflare Tunnels:** Essencial para expor o n8n para a web.*
 
 ### 2. Subindo o Chatwoot via Docker
 No seu arquivo de configuração de containers (`docker-compose.yml`), certifique-se de manter a versão estável do Chatwoot (`v4.17.0` ou superior) e suba os serviços:
