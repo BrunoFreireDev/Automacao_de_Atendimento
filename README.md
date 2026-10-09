@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=slice&color=0:1e293b,55:0f172a,100:020617&height=180&section=header&text=Automa%C3%A7%C3%A3o%20de%20Atendimento&fontSize=34&fontColor=38bdf8&animation=fadeIn&fontAlignY=40" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=eclipse&color=0:1e293b,55:0f172a,100:020617&height=180&section=header&text=Automa%C3%A7%C3%A3o%20de%20Atendimento&fontSize=34&fontColor=38bdf8&animation=fadeIn&fontAlignY=40" width="100%"/>
 
 <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&weight=600&size=16&duration=3200&pause=900&color=38bdf8&center=true&vCenter=true&width=750&lines=Orquestra%C3%A7%C3%A3o+de+fluxos+com+n8n+e+Chatwoot;Integra%C3%A7%C3%A3o+Omnichannel+via+WhatsApp+CloudAPI;Automa%C3%A7%C3%A3o+de+Ordens+de+Servi%C3%A7o+(OS)+com+Banco+de+Dados"/>
 
